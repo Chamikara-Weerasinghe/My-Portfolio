@@ -1,19 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { ArrowDown, Download, Mail } from "lucide-react";
 import { roles } from "@/lib/data";
-
-const Hero3D = dynamic(() => import("@/components/three/Hero3D"), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full h-[350px] md:h-[450px] lg:h-[500px] flex items-center justify-center">
-      <div className="w-32 h-32 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 animate-pulse" />
-    </div>
-  ),
-});
+import HeroDevOpsIllustration from "@/components/sections/HeroDevOpsIllustration";
 
 function TypingAnimation({ texts }: { texts: string[] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -152,14 +143,14 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right - 3D illustration */}
+          {/* Right - DevOps illustration */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 2.2 }}
             className="relative"
           >
-            <Hero3D />
+            <HeroDevOpsIllustration />
           </motion.div>
         </div>
 

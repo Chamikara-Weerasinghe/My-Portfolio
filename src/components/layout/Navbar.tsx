@@ -35,22 +35,11 @@ export default function Navbar() {
       )}
     >
       <nav
-        className="container-custom flex items-center justify-between h-16 md:h-20 px-4 sm:px-6 lg:px-8"
+        className="container-custom relative flex items-center justify-end h-16 md:h-20 px-4 sm:px-6 lg:px-8"
         aria-label="Main navigation"
       >
-        <a
-          href="#home"
-          onClick={(e) => {
-            e.preventDefault();
-            handleNavClick("#home");
-          }}
-          className="text-xl font-bold gradient-text"
-        >
-          CW
-        </a>
-
-        {/* Desktop nav */}
-        <ul className="hidden lg:flex items-center gap-1">
+        {/* Desktop nav — centered */}
+        <ul className="hidden lg:flex items-center gap-1 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
