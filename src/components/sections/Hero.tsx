@@ -108,9 +108,22 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 2.3 }}
               className="text-muted text-base md:text-lg max-w-xl mb-8 leading-relaxed"
             >
-              &ldquo;I build scalable web applications, cloud infrastructure, and
-              modern digital experiences with clean code and elegant
-              design.&rdquo;
+              I&apos;m{" "}
+              <strong className="text-foreground font-semibold">
+                Chamikara Weerasinghe
+              </strong>
+              , a{" "}
+              <strong className="text-foreground font-semibold">
+                Software Engineering Undergraduate
+              </strong>{" "}
+              and{" "}
+              <strong className="text-foreground font-semibold">
+                DevOps Engineer Intern
+              </strong>{" "}
+              with a passion for cloud computing, automation, and modern web
+              development. I enjoy building reliable applications, exploring
+              DevOps technologies, and continuously improving my skills by
+              working on real-world projects.
             </motion.p>
 
             <motion.div
