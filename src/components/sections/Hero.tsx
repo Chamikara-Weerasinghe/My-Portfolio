@@ -103,27 +103,12 @@ export default function Hero() {
             </motion.div>
 
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 2.3 }}
-              className="text-muted text-base md:text-lg max-w-xl mb-8 leading-relaxed"
+              transition={{ duration: 0.7, delay: 2.3, ease: "easeOut" }}
+              className="text-sm md:text-base font-mono tracking-wide text-muted/85 mb-8 max-w-xl"
             >
-              I&apos;m{" "}
-              <strong className="text-foreground font-semibold">
-                Chamikara Weerasinghe
-              </strong>
-              , a{" "}
-              <strong className="text-foreground font-semibold">
-                Software Engineering Undergraduate
-              </strong>{" "}
-              and{" "}
-              <strong className="text-foreground font-semibold">
-                DevOps Engineer Intern
-              </strong>{" "}
-              with a passion for cloud computing, automation, and modern web
-              development. I enjoy building reliable applications, exploring
-              DevOps technologies, and continuously improving my skills by
-              working on real-world projects.
+              Cloud &bull; DevOps &bull; Automation &bull; Software Engineering
             </motion.p>
 
             <motion.div
