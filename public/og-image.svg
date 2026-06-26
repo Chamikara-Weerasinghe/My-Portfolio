@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#09090B"/>
+  <circle cx="200" cy="150" r="300" fill="#3B82F6" opacity="0.1"/>
+  <circle cx="1000" cy="500" r="250" fill="#8B5CF6" opacity="0.1"/>
+  <text x="100" y="280" fill="white" font-family="system-ui,sans-serif" font-size="72" font-weight="700">Chamikara Weerasinghe</text>
+  <text x="100" y="360" fill="#A1A1AA" font-family="system-ui,sans-serif" font-size="32">Software Engineer &amp; DevOps | chamikara.online</text>
+  <rect x="100" y="400" width="200" height="4" rx="2" fill="url(#og)"/>
+  <defs>
+    <linearGradient id="og" x1="100" y1="0" x2="300" y2="0">
+      <stop stop-color="#3B82F6"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+  </defs>
+</svg>
