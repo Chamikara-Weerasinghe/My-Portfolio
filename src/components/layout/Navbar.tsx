@@ -5,21 +5,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { navLinks } from "@/lib/data";
 import { cn } from "@/lib/utils";
+import { useTheme } from "@/components/providers/ThemeProvider";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [isDark, setIsDark] = useState(true);
+  const { theme, toggleTheme, mounted } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", isDark);
-  }, [isDark]);
 
   const handleNavClick = (href: string) => {
     setIsOpen(false);
@@ -34,7 +31,7 @@ export default function Navbar() {
       transition={{ duration: 0.6, delay: 1.8 }}
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled ? "glass-strong shadow-lg shadow-black/20" : "bg-transparent"
+        scrolled ? "glass-strong shadow-theme" : "bg-transparent"
       )}
     >
       <nav
@@ -62,7 +59,7 @@ export default function Navbar() {
                   e.preventDefault();
                   handleNavClick(link.href);
                 }}
-                className="px-4 py-2 text-sm text-muted hover:text-foreground transition-colors rounded-lg hover:bg-white/5"
+                className="px-4 py-2 text-sm text-muted hover:text-foreground transition-colors rounded-lg hover-nav"
               >
                 {link.label}
               </a>
@@ -72,16 +69,25 @@ export default function Navbar() {
 
         <div className="flex items-center gap-3">
           <button
-            onClick={() => setIsDark(!isDark)}
-            className="p-2 rounded-lg glass hover:bg-white/10 transition-colors"
-            aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+            onClick={toggleTheme}
+            className="p-2 rounded-lg glass hover-glass transition-colors"
+            aria-label={
+              mounted && theme === "light"
+                ? "Switch to dark mode"
+                : "Switch to light mode"
+            }
+            suppressHydrationWarning
           >
-            {isDark ? <Sun size={18} /> : <Moon size={18} />}
+            {!mounted || theme === "dark" ? (
+              <Sun size={18} />
+            ) : (
+              <Moon size={18} />
+            )}
           </button>
 
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-lg glass hover:bg-white/10 transition-colors"
+            className="lg:hidden p-2 rounded-lg glass hover-glass transition-colors"
             aria-label={isOpen ? "Close menu" : "Open menu"}
             aria-expanded={isOpen}
           >
@@ -97,7 +103,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden glass-strong border-t border-white/10 overflow-hidden"
+            className="lg:hidden glass-strong border-t border-theme-md overflow-hidden"
           >
             <ul className="px-4 py-4 space-y-1">
               {navLinks.map((link, i) => (
@@ -113,7 +119,7 @@ export default function Navbar() {
                       e.preventDefault();
                       handleNavClick(link.href);
                     }}
-                    className="block px-4 py-3 text-muted hover:text-foreground rounded-lg hover:bg-white/5 transition-colors"
+                    className="block px-4 py-3 text-muted hover:text-foreground rounded-lg hover-nav transition-colors"
                   >
                     {link.label}
                   </a>

@@ -87,7 +87,7 @@ export default function Contact() {
                         ? "noopener noreferrer"
                         : undefined
                     }
-                    className="flex items-center gap-4 p-4 rounded-xl glass hover:bg-white/[0.07] transition-colors group"
+                    className="flex items-center gap-4 p-4 rounded-xl glass hover-card transition-colors group"
                   >
                     <div className="p-2.5 rounded-lg bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
                       <Icon size={18} />
@@ -119,7 +119,7 @@ export default function Contact() {
                   onChange={(e) =>
                     setFormState({ ...formState, name: e.target.value })
                   }
-                  className="w-full px-4 py-3 rounded-xl bg-surface/50 border border-white/10 text-foreground placeholder:text-muted/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-colors"
+                  className="w-full px-4 py-3 rounded-xl input-field text-foreground placeholder:text-muted/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-colors"
                   placeholder="Your name"
                 />
               </div>
@@ -139,7 +139,7 @@ export default function Contact() {
                   onChange={(e) =>
                     setFormState({ ...formState, email: e.target.value })
                   }
-                  className="w-full px-4 py-3 rounded-xl bg-surface/50 border border-white/10 text-foreground placeholder:text-muted/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-colors"
+                  className="w-full px-4 py-3 rounded-xl input-field text-foreground placeholder:text-muted/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-colors"
                   placeholder="your@email.com"
                 />
               </div>
@@ -159,7 +159,7 @@ export default function Contact() {
                   onChange={(e) =>
                     setFormState({ ...formState, message: e.target.value })
                   }
-                  className="w-full px-4 py-3 rounded-xl bg-surface/50 border border-white/10 text-foreground placeholder:text-muted/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-colors resize-none"
+                  className="w-full px-4 py-3 rounded-xl input-field text-foreground placeholder:text-muted/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-colors resize-none"
                   placeholder="Your message..."
                 />
               </div>

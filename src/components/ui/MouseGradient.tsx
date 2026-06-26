@@ -23,9 +23,9 @@ export default function MouseGradient() {
 
   return (
     <div
-      className="pointer-events-none fixed inset-0 z-0 transition-all duration-1000 ease-out"
+      className="pointer-events-none fixed inset-0 z-0 transition-all duration-1000 ease-out mouse-gradient-bg"
       style={{
-        background: `radial-gradient(600px circle at ${position.x}% ${position.y}%, rgba(59,130,246,0.06), transparent 40%)`,
+        background: `radial-gradient(600px circle at ${position.x}% ${position.y}%, var(--theme-mouse-gradient), transparent 40%)`,
       }}
       aria-hidden="true"
     />

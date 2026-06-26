@@ -32,7 +32,7 @@ export default function Projects() {
                   <div className="absolute inset-0 flex items-center justify-center">
                     <Folder
                       size={48}
-                      className="text-white/10 group-hover:scale-110 transition-transform duration-500"
+                      className="project-placeholder-icon group-hover:scale-110 transition-transform duration-500"
                     />
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
@@ -76,7 +76,7 @@ export default function Projects() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 text-sm rounded-lg glass hover:bg-white/10 transition-colors"
+                      className="flex items-center gap-2 px-4 py-2 text-sm rounded-lg glass hover-glass transition-colors"
                     >
                       <Github size={16} />
                       GitHub

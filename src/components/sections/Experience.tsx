@@ -26,7 +26,7 @@ export default function Experience() {
 
                 {/* Content card */}
                 <div className={`md:col-start-${i % 2 === 0 ? "1" : "2"}`}>
-                  <div className="p-6 rounded-2xl glass hover:bg-white/[0.07] transition-colors md:mr-8">
+                  <div className="p-6 rounded-2xl glass hover-card transition-colors md:mr-8">
                     <div className="flex items-start gap-4">
                       <div className="p-2.5 rounded-xl bg-primary/10 text-primary shrink-0">
                         <Briefcase size={20} />

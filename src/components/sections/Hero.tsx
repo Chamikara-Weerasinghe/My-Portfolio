@@ -70,11 +70,11 @@ export default function Hero() {
       {/* Background effects */}
       <div className="absolute inset-0 grid-bg" aria-hidden="true" />
       <div
-        className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px]"
+        className="absolute top-1/4 left-1/4 w-96 h-96 hero-blob-primary rounded-full blur-[120px]"
         aria-hidden="true"
       />
       <div
-        className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-[120px]"
+        className="absolute bottom-1/4 right-1/4 w-96 h-96 hero-blob-accent rounded-full blur-[120px]"
         aria-hidden="true"
       />
 
@@ -137,14 +137,14 @@ export default function Hero() {
               <a
                 href="/resume.pdf"
                 download
-                className="px-6 py-3 rounded-xl glass hover:bg-white/10 transition-colors font-medium flex items-center gap-2"
+                className="px-6 py-3 rounded-xl glass hover-glass transition-colors font-medium flex items-center gap-2"
               >
                 <Download size={18} />
                 Download Resume
               </a>
               <button
                 onClick={() => scrollTo("#contact")}
-                className="px-6 py-3 rounded-xl glass hover:bg-white/10 transition-colors font-medium flex items-center gap-2"
+                className="px-6 py-3 rounded-xl glass hover-glass transition-colors font-medium flex items-center gap-2"
               >
                 <Mail size={18} />
                 Contact Me

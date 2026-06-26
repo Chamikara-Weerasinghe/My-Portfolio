@@ -30,7 +30,7 @@ export default function Skills() {
 
             return (
               <ScrollReveal key={category.title} delay={catIndex * 0.1}>
-                <div className="p-6 rounded-2xl glass hover:bg-white/[0.07] transition-all duration-300 group h-full">
+                <div className="p-6 rounded-2xl glass hover-card transition-all duration-300 group h-full">
                   <div className="flex items-center gap-3 mb-5">
                     <div className="p-2.5 rounded-xl bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
                       <Icon size={20} />
@@ -47,7 +47,7 @@ export default function Skills() {
                         viewport={{ once: true }}
                         transition={{ delay: catIndex * 0.1 + i * 0.05 }}
                         whileHover={{ scale: 1.05, y: -2 }}
-                        className="px-3 py-1.5 text-sm rounded-lg bg-surface-light/50 border border-white/5 text-muted hover:text-foreground hover:border-primary/30 transition-all cursor-default"
+                        className="px-3 py-1.5 text-sm rounded-lg skill-tag text-muted hover:text-foreground hover:border-primary/30 transition-all cursor-default"
                       >
                         {skill}
                       </motion.span>

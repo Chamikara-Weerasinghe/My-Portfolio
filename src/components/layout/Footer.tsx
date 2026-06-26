@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/5 py-10 md:py-12" role="contentinfo">
+    <footer className="border-t border-theme py-10 md:py-12" role="contentinfo">
       <div className="container-custom px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 10 }}

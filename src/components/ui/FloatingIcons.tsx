@@ -29,7 +29,7 @@ export default function FloatingIcons() {
       {icons.map(({ Icon, x, y, delay }, i) => (
         <motion.div
           key={i}
-          className="absolute text-white/[0.03]"
+          className="absolute floating-icon"
           style={{ left: x, top: y }}
           animate={{
             y: [0, -20, 0],
