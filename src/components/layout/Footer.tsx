@@ -1,20 +1,31 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { siteConfig } from "@/lib/data";
-import { Heart } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/5 py-8" role="contentinfo">
+    <footer className="border-t border-white/5 py-10 md:py-12" role="contentinfo">
       <div className="container-custom px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted">
-          <p>
-            &copy; 2026 {siteConfig.name}. All rights reserved.
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-2xl mx-auto group cursor-default"
+        >
+          <p className="text-base md:text-lg text-muted leading-relaxed mb-4 transition-all duration-500 group-hover:text-foreground">
+            &ldquo;Turning ideas into real-world digital experiences. Every line
+            of code is a step toward my future.&rdquo;
           </p>
-          <p className="flex items-center gap-1.5">
-            Built with{" "}
-            <Heart size={14} className="text-red-500 fill-red-500" /> using
-            Next.js + Tailwind CSS
+          <p className="text-xs md:text-sm text-muted/70 tracking-wide transition-all duration-500 group-hover:gradient-text group-hover:opacity-100">
+            Designed &amp; Developed by {siteConfig.name} &copy; 2026
           </p>
-        </div>
+          <div
+            className="mt-6 mx-auto w-12 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 group-hover:opacity-100 group-hover:w-24 transition-all duration-500"
+            aria-hidden="true"
+          />
+        </motion.div>
       </div>
     </footer>
   );
