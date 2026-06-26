@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowDown, Download, Mail } from "lucide-react";
-import { roles } from "@/lib/data";
+import { ArrowDown, Download, Linkedin, Mail } from "lucide-react";
+import { roles, siteConfig } from "@/lib/data";
 import HeroDevOpsIllustration from "@/components/sections/HeroDevOpsIllustration";
 
 function TypingAnimation({ texts }: { texts: string[] }) {
@@ -115,29 +115,64 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 2.4 }}
-              className="flex flex-wrap gap-4"
+              className="space-y-4"
             >
-              <button
-                onClick={() => scrollTo("#projects")}
-                className="px-6 py-3 rounded-xl bg-gradient-to-r from-primary to-accent text-white font-medium hover:opacity-90 transition-opacity glow-blue"
-              >
-                View Projects
-              </button>
-              <a
-                href="/resume.pdf"
-                download
-                className="px-6 py-3 rounded-xl glass hover-glass transition-colors font-medium flex items-center gap-2"
-              >
-                <Download size={18} />
-                Download Resume
-              </a>
-              <button
-                onClick={() => scrollTo("#contact")}
-                className="px-6 py-3 rounded-xl glass hover-glass transition-colors font-medium flex items-center gap-2"
-              >
-                <Mail size={18} />
-                Contact Me
-              </button>
+              <div className="flex flex-wrap gap-4">
+                <button
+                  onClick={() => scrollTo("#projects")}
+                  className="px-6 py-3 rounded-xl bg-gradient-to-r from-primary to-accent text-white font-medium hover:opacity-90 transition-opacity glow-blue"
+                >
+                  View Projects
+                </button>
+                <a
+                  href="/resume.pdf"
+                  download
+                  className="px-6 py-3 rounded-xl glass hover-glass transition-colors font-medium flex items-center gap-2"
+                >
+                  <Download size={18} />
+                  Download Resume
+                </a>
+              </div>
+
+              <div className="flex flex-wrap gap-3">
+                <motion.a
+                  href={siteConfig.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ y: -2 }}
+                  transition={{ duration: 0.2 }}
+                  className="group flex items-center gap-3 px-4 py-2.5 rounded-xl glass hover-glass transition-all duration-300 hover:glow-blue"
+                >
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                    className="p-2 rounded-lg bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors"
+                  >
+                    <Linkedin size={18} strokeWidth={1.75} />
+                  </motion.div>
+                  <span className="text-sm font-medium text-muted group-hover:text-foreground transition-colors">
+                    LinkedIn
+                  </span>
+                </motion.a>
+
+                <motion.a
+                  href="mailto:chamikaraweerasinghe036@gmail.com"
+                  whileHover={{ y: -2 }}
+                  transition={{ duration: 0.2 }}
+                  className="group flex items-center gap-3 px-4 py-2.5 rounded-xl glass hover-glass transition-all duration-300 hover:glow-purple"
+                >
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                    className="p-2 rounded-lg bg-accent/10 text-accent group-hover:bg-accent/20 transition-colors"
+                  >
+                    <Mail size={18} strokeWidth={1.75} />
+                  </motion.div>
+                  <span className="text-sm font-medium text-muted group-hover:text-foreground transition-colors">
+                    Email Me
+                  </span>
+                </motion.a>
+              </div>
             </motion.div>
           </div>
 
