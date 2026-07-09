@@ -1,55 +1,12 @@
 "use client";
 
-import { useState, FormEvent } from "react";
-import { motion } from "framer-motion";
-import {
-  Send,
-  Github,
-  Linkedin,
-  Mail,
-  MapPin,
-  CheckCircle,
-  AlertCircle,
-} from "lucide-react";
+import { Github, Linkedin, Mail, MapPin } from "lucide-react";
 import { siteConfig } from "@/lib/data";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import GetInTouchForm from "@/components/ui/GetInTouchForm";
 
 export default function Contact() {
-  const [formState, setFormState] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [status, setStatus] = useState<
-    "idle" | "loading" | "success" | "error"
-  >("idle");
-
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-    setStatus("loading");
-
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formState),
-      });
-
-      if (res.ok) {
-        setStatus("success");
-        setFormState({ name: "", email: "", message: "" });
-        setTimeout(() => setStatus("idle"), 5000);
-      } else {
-        setStatus("error");
-        setTimeout(() => setStatus("idle"), 5000);
-      }
-    } catch {
-      setStatus("error");
-      setTimeout(() => setStatus("idle"), 5000);
-    }
-  };
-
   const contactLinks = [
     { icon: Github, label: "GitHub", href: siteConfig.github },
     { icon: Linkedin, label: "LinkedIn", href: siteConfig.linkedin },
@@ -107,97 +64,9 @@ export default function Contact() {
 
           {/* Contact form */}
           <ScrollReveal direction="right" delay={0.2}>
-            <form
-              onSubmit={handleSubmit}
-              className="p-6 md:p-8 rounded-2xl glass-strong space-y-5"
-            >
-              <div>
-                <label htmlFor="name" className="block text-sm text-muted mb-2">
-                  Name
-                </label>
-                <input
-                  id="name"
-                  type="text"
-                  required
-                  value={formState.name}
-                  onChange={(e) =>
-                    setFormState({ ...formState, name: e.target.value })
-                  }
-                  className="w-full px-4 py-3 rounded-xl input-field text-foreground placeholder:text-muted/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-colors"
-                  placeholder="Your name"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm text-muted mb-2"
-                >
-                  Email
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  required
-                  value={formState.email}
-                  onChange={(e) =>
-                    setFormState({ ...formState, email: e.target.value })
-                  }
-                  className="w-full px-4 py-3 rounded-xl input-field text-foreground placeholder:text-muted/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-colors"
-                  placeholder="your@email.com"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm text-muted mb-2"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  required
-                  rows={5}
-                  value={formState.message}
-                  onChange={(e) =>
-                    setFormState({ ...formState, message: e.target.value })
-                  }
-                  className="w-full px-4 py-3 rounded-xl input-field text-foreground placeholder:text-muted/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-colors resize-none"
-                  placeholder="Your message..."
-                />
-              </div>
-
-              <motion.button
-                type="submit"
-                disabled={status === "loading"}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full py-3 rounded-xl bg-gradient-to-r from-primary to-accent text-white font-medium flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-50"
-              >
-                {status === "loading" ? (
-                  <span className="animate-pulse">Sending...</span>
-                ) : (
-                  <>
-                    <Send size={18} />
-                    Send Message
-                  </>
-                )}
-              </motion.button>
-
-              {status === "success" && (
-                <p className="flex items-center gap-2 text-sm text-green-400">
-                  <CheckCircle size={16} />
-                  Message sent successfully!
-                </p>
-              )}
-              {status === "error" && (
-                <p className="flex items-center gap-2 text-sm text-red-400">
-                  <AlertCircle size={16} />
-                  Failed to send. Please try again.
-                </p>
-              )}
-            </form>
+            <div className="p-6 md:p-8 rounded-2xl glass-strong glow-purple">
+              <GetInTouchForm idPrefix="contact" />
+            </div>
           </ScrollReveal>
         </div>
       </div>
