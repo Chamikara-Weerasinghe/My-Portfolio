@@ -53,7 +53,11 @@ export default function Contact() {
   const contactLinks = [
     { icon: Github, label: "GitHub", href: siteConfig.github },
     { icon: Linkedin, label: "LinkedIn", href: siteConfig.linkedin },
-    { icon: Mail, label: "Email", href: `mailto:${siteConfig.email}` },
+    {
+      icon: Mail,
+      label: "Email",
+      href: `https://mail.google.com/mail/?view=cm&fs=1&to=${siteConfig.email}&su=Portfolio%20Inquiry`,
+    },
     { icon: MapPin, label: siteConfig.location, href: "#" },
   ];
 
