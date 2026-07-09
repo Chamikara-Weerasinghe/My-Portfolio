@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowDown, Download, Linkedin, Mail } from "lucide-react";
 import { roles, siteConfig } from "@/lib/data";
 import HeroDevOpsIllustration from "@/components/sections/HeroDevOpsIllustration";
+import EmailContactModal from "@/components/ui/EmailContactModal";
 
 function TypingAnimation({ texts }: { texts: string[] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -49,6 +50,8 @@ function TypingAnimation({ texts }: { texts: string[] }) {
 }
 
 export default function Hero() {
+  const [isEmailModalOpen, setIsEmailModalOpen] = useState(false);
+
   const scrollTo = (id: string) => {
     document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
   };
@@ -155,10 +158,9 @@ export default function Hero() {
                   </span>
                 </motion.a>
 
-                <motion.a
-                  href="https://mail.google.com/mail/?view=cm&fs=1&to=chamikaraweerasinghe036@gmail.com&su=Portfolio%20Inquiry"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <motion.button
+                  type="button"
+                  onClick={() => setIsEmailModalOpen(true)}
                   whileHover={{ y: -2 }}
                   transition={{ duration: 0.2 }}
                   className="group flex items-center gap-3 px-4 py-2.5 rounded-xl glass hover-glass transition-all duration-300 hover:glow-purple"
@@ -173,7 +175,7 @@ export default function Hero() {
                   <span className="text-sm font-medium text-muted group-hover:text-foreground transition-colors">
                     Email Me
                   </span>
-                </motion.a>
+                </motion.button>
               </div>
             </motion.div>
           </div>
@@ -207,6 +209,11 @@ export default function Hero() {
           </motion.button>
         </motion.div>
       </div>
+
+      <EmailContactModal
+        isOpen={isEmailModalOpen}
+        onClose={() => setIsEmailModalOpen(false)}
+      />
     </section>
   );
 }
