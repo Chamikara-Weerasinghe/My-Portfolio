@@ -25,9 +25,9 @@ interface FormErrors {
   message?: string;
 }
 
-function buildGmailComposeUrl({ name, email, subject, message }: FormData) {
+function buildGmailComposeUrl({ name, email, message }: FormData) {
   const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
-  return `https://mail.google.com/mail/?view=cm&fs=1&to=${RECEIVER_EMAIL}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  return `https://mail.google.com/mail/?view=cm&fs=1&to=${RECEIVER_EMAIL}&body=${encodeURIComponent(body)}`;
 }
 
 function validateForm(data: FormData): FormErrors {
