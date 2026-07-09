@@ -125,8 +125,8 @@ export default function Hero() {
                   View Projects
                 </button>
                 <a
-                  href="/resume.pdf"
-                  download
+                  href="/Chamikara-CV.pdf"
+                  download="Chamikara-Dinendra-Bandara-Weerasinghe-CV.pdf"
                   className="px-6 py-3 rounded-xl glass hover-glass transition-colors font-medium flex items-center gap-2"
                 >
                   <Download size={18} />
