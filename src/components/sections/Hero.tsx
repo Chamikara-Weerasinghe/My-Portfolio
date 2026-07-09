@@ -156,7 +156,9 @@ export default function Hero() {
                 </motion.a>
 
                 <motion.a
-                  href="mailto:chamikaraweerasinghe036@gmail.com?subject=Portfolio%20Inquiry"
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=chamikaraweerasinghe036@gmail.com&su=Portfolio%20Inquiry"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ y: -2 }}
                   transition={{ duration: 0.2 }}
                   className="group flex items-center gap-3 px-4 py-2.5 rounded-xl glass hover-glass transition-all duration-300 hover:glow-purple"
